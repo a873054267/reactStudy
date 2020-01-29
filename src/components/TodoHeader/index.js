@@ -1,7 +1,7 @@
 import React from 'react'
 
-export default function TodoHeader() {
+export default function TodoHeader(props) {
     return (
-        <h1>代办事件</h1>
+        <h1>{props.title}</h1>
     )
 }
