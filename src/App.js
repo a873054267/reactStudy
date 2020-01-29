@@ -3,7 +3,8 @@ import React, { Component ,Fragment} from 'react'
 import {
     TodoHeader,
     TodoInput,
-    TodoList
+    TodoList,
+    Like
 }
 from './components'
 export default class App extends Component {
@@ -15,8 +16,8 @@ export default class App extends Component {
         this.state={
             btntitle:"11111111",
             todos:[
-                {id:1,title:"吃饭"},
-                {id:2,title:"睡觉"}
+                {id:1,title:"吃饭",author:"张三"},
+                {id:2,title:"睡觉",author:"李四"}
             ]
         }
     }
@@ -27,6 +28,7 @@ export default class App extends Component {
                 <TodoHeader  title="代办事项列表76"/>  
                 <TodoInput btntitle="ADD"/>
                 <TodoList  todos={this.state.todos}/>
+                <Like />
             </Fragment>
         )
     }

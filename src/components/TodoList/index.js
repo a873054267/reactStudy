@@ -11,7 +11,7 @@ export default class TodoList extends Component {
                {
                    this.props.todos.map( todo => {
                        return (
-                        <TodoItem key={todo.id } title={todo.title} />
+                        <TodoItem key={todo.id } {...todo} />
                        )
                    })
                }
