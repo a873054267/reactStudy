@@ -7,6 +7,8 @@ import {
     Like
 }
 from './components'
+
+
 export default class App extends Component {
    /**************
     * 数据统一管理原则，数据全部挂载在根组件上
@@ -21,12 +23,20 @@ export default class App extends Component {
             ]
         }
     }
-
+    addTodo= (todoTitle) => {
+        this.setState({
+            todos:this.state.todos.concat({
+                id:Math.random(),
+                title:todoTitle,
+                author:"ss"
+            })
+        })
+    }
     render() {
         return (
             <Fragment>
                 <TodoHeader  title="代办事项列表76"/>  
-                <TodoInput btntitle="ADD"/>
+                <TodoInput btntitle="ADD" addTodo={this.addTodo}/>
                 <TodoList  todos={this.state.todos}/>
                 <Like />
             </Fragment>

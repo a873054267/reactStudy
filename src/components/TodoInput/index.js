@@ -11,13 +11,16 @@ export default class TodoInput extends Component {
         this.setState({
             inputValue:e.currentTarget.value
         })
-        console.log(e.currentTarget)
-
+      
+    
+    }
+    handleClick=() => {
+        this.props.addTodo(this.state.inputValue)
     }
     render() {
         return (
             <div>
-    <input type="text" value={this.state.inputValue } onChange={this.handleChange} /><button>{this.props.btntitle}</button>
+    <input type="text" value={this.state.inputValue } onChange={this.handleChange} /><button onClick={this.handleClick}>{this.props.btntitle}</button>
             </div>
         )
     }
