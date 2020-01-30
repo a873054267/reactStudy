@@ -17,10 +17,21 @@ export default class TodoInput extends Component {
     handleClick=() => {
         this.props.addTodo(this.state.inputValue)
     }
+    handleKeyUp=(e)=>{
+        if(e.keyCode==13){
+            this.handleClick()
+ 
+        }
+
+    }
     render() {
         return (
             <div>
-    <input type="text" value={this.state.inputValue } onChange={this.handleChange} /><button onClick={this.handleClick}>{this.props.btntitle}</button>
+    <input type="text" 
+    value={this.state.inputValue } 
+    onKeyUp={this.handleKeyUp}
+    onChange={this.handleChange} 
+    /><button onClick={this.handleClick}>{this.props.btntitle}</button>
             </div>
         )
     }
