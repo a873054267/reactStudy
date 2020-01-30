@@ -17,6 +17,10 @@ export default class TodoInput extends Component {
     
     }
     handleClick=() => {
+        //判断是否为空
+        if(this.state.inputValue===""){
+            return
+        }
 
        
         this.props.addTodo(this.state.inputValue)
