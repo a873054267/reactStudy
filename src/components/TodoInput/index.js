@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component,createRef} from 'react'
 
 export default class TodoInput extends Component {
     constructor(){
@@ -6,6 +6,8 @@ export default class TodoInput extends Component {
         this.state={
             inputValue:""
         }
+        //创建ref
+        this.inputDom=createRef()
     }
     handleChange=(e ) => {
         this.setState({
@@ -15,10 +17,18 @@ export default class TodoInput extends Component {
     
     }
     handleClick=() => {
+
+       
         this.props.addTodo(this.state.inputValue)
+        this.setState({
+            inputValue:""
+        },() => {
+            //重新聚焦
+            this.inputDom.current.focus()
+        })
     }
     handleKeyUp=(e)=>{
-        if(e.keyCode==13){
+        if(e.keyCode===13){
             this.handleClick()
  
         }
@@ -31,6 +41,7 @@ export default class TodoInput extends Component {
     value={this.state.inputValue } 
     onKeyUp={this.handleKeyUp}
     onChange={this.handleChange} 
+    ref={this.inputDom}
     /><button onClick={this.handleClick}>{this.props.btntitle}</button>
             </div>
         )
