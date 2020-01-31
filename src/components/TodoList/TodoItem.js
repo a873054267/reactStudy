@@ -2,9 +2,17 @@ import React, { Component } from 'react'
 
 export default class TodoItem extends Component {
     handleChange=()=> {
-        this.props.completeChange(this.props.id)
+        /*****
+         * 解构赋值，并赋
+         */
+        const {
+            completeChange=()=>{}
+            ,id}=this.props
+
+        completeChange(id)
     }
     render() {
+        console.log("render")
         return (
             <div>
     <input type="checkbox" 
